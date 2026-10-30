@@ -12,8 +12,9 @@ export function initFiltering(elements) {
 
     const applyFiltering = (query, state, action) => {
         // код с обработкой очистки поля
-        if (action) {
+        if (action && action.name === "clear") {
             const inputField = action.previousElementSibling;
+            state[inputField.name] = "";
             inputField.value = "";
         }
 
